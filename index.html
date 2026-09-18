@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Proposta Tráfego e Criativos — Giovana</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0C0B0F;
+    --bg-card: #14131A;
+    --accent: #C9A96E;
+    --accent-soft: rgba(201, 169, 110, 0.12);
+    --text: #E8E4DD;
+    --text-soft: #9B978F;
+    --text-muted: #6B6862;
+    --border: rgba(201, 169, 110, 0.15);
+    --white: #FDFCFA;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: 'DM Sans', sans-serif; font-weight: 300;
+    line-height: 1.6; min-height: 100vh; overflow-x: hidden;
+  }
+  .noise {
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 999;
+  }
+  .glow-orb {
+    position: fixed; width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,169,110,0.06) 0%, transparent 70%);
+    top: -200px; right: -200px; pointer-events: none; z-index: 0;
+  }
+  .glow-orb-2 {
+    position: fixed; width: 500px; height: 500px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,169,110,0.04) 0%, transparent 70%);
+    bottom: -150px; left: -150px; pointer-events: none; z-index: 0;
+  }
+  .container {
+    max-width: 780px; margin: 0 auto;
+    padding: 60px 32px 80px; position: relative; z-index: 1;
+  }
+
+  .header { text-align: center; margin-bottom: 72px; animation: fadeUp .8s ease-out both; }
+  .brand {
+    font-weight: 500; font-size: 11px; letter-spacing: 4px; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 32px; display: inline-block;
+    padding: 8px 20px; border: 1px solid var(--border); border-radius: 100px;
+  }
+  .header h1 {
+    font-family: 'Cormorant Garamond', serif; font-weight: 600;
+    font-size: clamp(36px, 6vw, 52px); color: var(--white); line-height: 1.15; margin-bottom: 16px;
+  }
+  .header h1 em { color: var(--accent); font-style: italic; font-weight: 400; }
+  .header .subtitle {
+    font-size: 15px; color: var(--text-soft); max-width: 500px; margin: 0 auto; line-height: 1.7;
+  }
+
+  .divider {
+    width: 60px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    margin: 52px auto;
+  }
+  .section-label {
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif; font-size: 28px;
+    font-weight: 600; color: var(--white); margin-bottom: 8px;
+  }
+  .section-sub {
+    font-size: 14px; color: var(--text-soft); margin-bottom: 28px; max-width: 560px; line-height: 1.7;
+  }
+
+  .totals {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    animation: fadeUp .8s ease-out .15s both;
+  }
+  .total-card {
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px;
+    padding: 28px; text-align: center; transition: border-color .3s, transform .3s;
+  }
+  .total-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .total-card .number {
+    font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 700;
+    color: var(--white); line-height: 1; margin-bottom: 8px;
+  }
+  .total-card .desc { font-size: 12px; color: var(--text-soft); text-transform: uppercase; letter-spacing: 1.5px; }
+
+  .inc-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  }
+  .inc-item {
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px;
+    padding: 20px; font-size: 13px; color: var(--text-soft); line-height: 1.6;
+    display: flex; align-items: flex-start; gap: 10px;
+  }
+  .inc-item .check { color: var(--accent); font-size: 14px; flex-shrink: 0; margin-top: 2px; }
+
+  .investment { text-align: center; }
+  .investment .price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 8vw, 72px); font-weight: 700;
+    color: var(--white); line-height: 1; margin-bottom: 4px;
+  }
+  .investment .price span {
+    font-size: 0.45em; color: var(--accent); font-weight: 400;
+    vertical-align: super; margin-right: 4px;
+  }
+  .investment .price-note { font-size: 14px; color: var(--text-soft); margin-bottom: 16px; }
+  .investment .contract {
+    display: inline-block; padding: 10px 24px;
+    background: var(--accent-soft); border: 1px solid var(--border);
+    border-radius: 100px; font-size: 13px; color: var(--accent); font-weight: 500;
+  }
+  .investment .fine { font-size: 12px; color: var(--text-muted); margin-top: 18px; }
+
+  .footer {
+    text-align: center; margin-top: 64px; padding-top: 32px;
+    border-top: 1px solid rgba(201,169,110,0.08);
+  }
+  .footer .logo-text {
+    font-family: 'Cormorant Garamond', serif; font-size: 24px;
+    font-weight: 600; color: var(--accent); margin-bottom: 8px;
+  }
+  .footer p { font-size: 12px; color: var(--text-muted); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 520px) {
+    .container { padding: 40px 20px 60px; }
+    .totals { gap: 10px; }
+    .total-card { padding: 20px 12px; }
+    .total-card .number { font-size: 32px; }
+    .inc-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="noise"></div>
+<div class="glow-orb"></div>
+<div class="glow-orb-2"></div>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="brand">Lumen Strategic Hub</div>
+    <h1>Proposta de <em>Tráfego</em> e Criativos</h1>
+    <p class="subtitle">Gestão de tráfego e produção mensal de criativos para o perpétuo da Giovana, integrada ao projeto que já está em andamento com a Lumen.</p>
+  </div>
+
+  <!-- ENTREGAS -->
+  <div style="animation: fadeUp .8s ease-out .1s both;">
+    <div class="section-label">Entregas mensais</div>
+    <div class="section-title">Resumo do escopo</div>
+    <div class="section-sub">Gestão das campanhas e produção recorrente dos criativos que alimentam os anúncios.</div>
+  </div>
+
+  <div class="totals">
+    <div class="total-card">
+      <div class="number">8</div>
+      <div class="desc">Criativos por mês</div>
+    </div>
+    <div class="total-card">
+      <div class="number">6</div>
+      <div class="desc">Estáticos</div>
+    </div>
+    <div class="total-card">
+      <div class="number">2</div>
+      <div class="desc">Vídeos</div>
+    </div>
+    <div class="total-card">
+      <div class="number">48</div>
+      <div class="desc">Criativos em 6 meses</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- O QUE ESTÁ INCLUSO -->
+  <div style="animation: fadeUp .8s ease-out .25s both;">
+    <div class="section-label">Incluso todo mês</div>
+    <div class="section-title">O que está incluso</div>
+    <div class="section-sub">Detalhamento do que compõe a entrega mensal.</div>
+
+    <div class="inc-grid">
+      <div class="inc-item">
+        <span class="check">✦</span>
+        Gestão de tráfego das campanhas do perpétuo
+      </div>
+      <div class="inc-item">
+        <span class="check">✦</span>
+        6 criativos estáticos por mês, com copy e design
+      </div>
+      <div class="inc-item">
+        <span class="check">✦</span>
+        2 criativos em vídeo por mês, com copy e edição
+      </div>
+      <div class="inc-item">
+        <span class="check">✦</span>
+        Criativos renovados todo mês, para os anúncios não cansarem o público
+      </div>
+      <div class="inc-item">
+        <span class="check">✦</span>
+        Integração direta com a copy e a estratégia já em andamento, sem retrabalho nem desalinhamento entre equipes
+      </div>
+      <div class="inc-item">
+        <span class="check">✦</span>
+        Gestora de projetos acompanhando todo o processo, do briefing à entrega final
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- INVESTIMENTO -->
+  <div class="investment" style="animation: fadeUp .8s ease-out .5s both;">
+    <div class="section-label">Investimento</div>
+    <div class="price"><span>R$</span>3.000</div>
+    <div class="price-note">por mês</div>
+    <div class="contract">Valor exclusivo para clientes com projeto ativo</div>
+    <p class="fine">A verba dos anúncios não está inclusa no valor.</p>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="logo-text">Lumen</div>
+    <p>Strategic Hub</p>
+  </div>
+
+</div>
+</body>
+</html>
