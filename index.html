@@ -40,7 +40,7 @@
     bottom: -150px; left: -150px; pointer-events: none; z-index: 0;
   }
   .container {
-    max-width: 780px; margin: 0 auto;
+    max-width: 880px; margin: 0 auto;
     padding: 60px 32px 80px; position: relative; z-index: 1;
   }
 
@@ -56,7 +56,7 @@
   }
   .header h1 em { color: var(--accent); font-style: italic; font-weight: 400; }
   .header .subtitle {
-    font-size: 15px; color: var(--text-soft); max-width: 500px; margin: 0 auto; line-height: 1.7;
+    font-size: 15px; color: var(--text-soft); max-width: 540px; margin: 0 auto; line-height: 1.7;
   }
 
   .divider {
@@ -73,27 +73,10 @@
     font-weight: 600; color: var(--white); margin-bottom: 8px;
   }
   .section-sub {
-    font-size: 14px; color: var(--text-soft); margin-bottom: 28px; max-width: 560px; line-height: 1.7;
+    font-size: 14px; color: var(--text-soft); margin-bottom: 28px; max-width: 600px; line-height: 1.7;
   }
 
-  .totals {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
-    animation: fadeUp .8s ease-out .15s both;
-  }
-  .total-card {
-    background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px;
-    padding: 28px; text-align: center; transition: border-color .3s, transform .3s;
-  }
-  .total-card:hover { border-color: var(--accent); transform: translateY(-2px); }
-  .total-card .number {
-    font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 700;
-    color: var(--white); line-height: 1; margin-bottom: 8px;
-  }
-  .total-card .desc { font-size: 12px; color: var(--text-soft); text-transform: uppercase; letter-spacing: 1.5px; }
-
-  .inc-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
-  }
+  .inc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .inc-item {
     background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px;
     padding: 20px; font-size: 13px; color: var(--text-soft); line-height: 1.6;
@@ -101,27 +84,94 @@
   }
   .inc-item .check { color: var(--accent); font-size: 14px; flex-shrink: 0; margin-top: 2px; }
 
-  .investment { text-align: center; }
-  .investment .price {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(48px, 8vw, 72px); font-weight: 700;
+  .models { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: stretch; }
+  .model {
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px;
+    padding: 30px 22px; text-align: center; display: flex; flex-direction: column;
+    transition: border-color .3s, transform .3s;
+  }
+  .model:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .model .tag {
+    display: inline-block; align-self: center; padding: 6px 16px; margin-bottom: 18px;
+    background: var(--accent-soft); border: 1px solid var(--border); border-radius: 100px;
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--accent); font-weight: 500;
+  }
+  .model .name {
+    font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600;
+    color: var(--white); line-height: 1.2; margin-bottom: 18px;
+  }
+  .model .fixo {
+    font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 700;
     color: var(--white); line-height: 1; margin-bottom: 4px;
   }
-  .investment .price span {
-    font-size: 0.45em; color: var(--accent); font-weight: 400;
+  .model .fixo span {
+    font-size: 0.42em; color: var(--accent); font-weight: 400;
     vertical-align: super; margin-right: 4px;
   }
-  .investment .price-note { font-size: 14px; color: var(--text-soft); margin-bottom: 16px; }
-  .investment .contract {
-    display: inline-block; padding: 10px 24px;
-    background: var(--accent-soft); border: 1px solid var(--border);
-    border-radius: 100px; font-size: 13px; color: var(--accent); font-weight: 500;
+  .model .fixo-note { font-size: 12px; color: var(--text-soft); text-transform: uppercase; letter-spacing: 1.2px; }
+  .model .plus { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--accent); margin: 12px 0 8px; }
+  .model .pct {
+    font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 700;
+    color: var(--white); line-height: 1; margin-bottom: 4px;
   }
-  .investment .term {
-    display: block; margin-top: 14px; font-size: 13px; color: var(--text-soft);
+  .model .pct-note { font-size: 12px; color: var(--text-soft); line-height: 1.6; }
+  .model .sem-com { font-size: 12px; color: var(--text-muted); margin-top: 16px; }
+  .model .sep { height: 1px; background: rgba(201,169,110,0.15); margin: 22px 0 18px; }
+  .model .criativos-n {
+    font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 700;
+    color: var(--accent); line-height: 1; margin-bottom: 6px;
+  }
+  .model .criativos-d { font-size: 12px; color: var(--text-soft); line-height: 1.6; }
+  .model .bonus-tag {
+    margin-top: auto; padding-top: 18px; font-size: 12px; color: var(--accent); line-height: 1.5;
+  }
+
+  .table-wrap { overflow-x: auto; }
+  table.compare {
+    width: 100%; border-collapse: collapse; font-size: 13px; min-width: 560px;
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden;
+  }
+  table.compare th, table.compare td {
+    padding: 16px 14px; text-align: center; border-bottom: 1px solid rgba(201,169,110,0.10);
+  }
+  table.compare thead th {
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--accent); font-weight: 500;
+  }
+  table.compare tbody th {
+    text-align: left; font-weight: 400; color: var(--text-soft);
+    font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
+  }
+  table.compare tbody td { color: var(--text); }
+  table.compare tbody tr:last-child th, table.compare tbody tr:last-child td { border-bottom: none; }
+
+  .bonus {
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px;
+    padding: 36px; text-align: center;
+  }
+  .bonus .bonus-label {
+    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--text-muted); margin-bottom: 10px;
+  }
+  .bonus .bonus-title {
+    font-family: 'Cormorant Garamond', serif; font-size: clamp(26px, 4vw, 32px);
+    font-weight: 600; color: var(--white); line-height: 1.25; margin-bottom: 10px;
+  }
+  .bonus .bonus-note {
+    font-size: 13px; color: var(--text-soft); line-height: 1.7; max-width: 500px; margin: 0 auto;
+  }
+  .bonus .badge {
+    display: inline-flex; align-items: center; gap: 8px; margin-top: 18px;
+    padding: 8px 20px; background: var(--accent-soft); border: 1px solid var(--border);
+    border-radius: 100px; font-size: 12px; color: var(--accent); font-weight: 500;
+  }
+
+  .term {
+    margin-top: 26px; text-align: center; font-size: 13px; color: var(--text-soft);
     letter-spacing: 1px; text-transform: uppercase;
   }
-  .investment .fine { font-size: 12px; color: var(--text-muted); margin-top: 18px; }
+  .fine { font-size: 12px; color: var(--text-muted); margin-top: 10px; text-align: center; }
 
   .footer {
     text-align: center; margin-top: 64px; padding-top: 32px;
@@ -138,12 +188,13 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
+  @media (max-width: 860px) {
+    .models { grid-template-columns: 1fr; }
+  }
   @media (max-width: 520px) {
     .container { padding: 40px 20px 60px; }
-    .totals { gap: 10px; }
-    .total-card { padding: 20px 12px; }
-    .total-card .number { font-size: 32px; }
     .inc-grid { grid-template-columns: 1fr; }
+    .bonus { padding: 28px 20px; }
   }
 </style>
 </head>
@@ -155,46 +206,16 @@
 
 <div class="container">
 
-  <!-- HEADER -->
   <div class="header">
     <div class="brand">Lumen Strategic Hub</div>
     <h1>Proposta de <em>Tráfego</em> e Criativos</h1>
-    <p class="subtitle">Gestão de tráfego de todas as campanhas da Giovana e produção mensal de criativos para o perpétuo, integradas ao projeto que já está em andamento com a Lumen.</p>
+    <p class="subtitle">Gestão de tráfego de todas as campanhas da Giovana e produção de criativos, integradas ao projeto que já está em andamento com a Lumen. São três modelos possíveis: você escolhe o que faz mais sentido pro seu momento.</p>
   </div>
 
-  <!-- ENTREGAS -->
   <div style="animation: fadeUp .8s ease-out .1s both;">
-    <div class="section-label">Entregas mensais</div>
-    <div class="section-title">Resumo do escopo</div>
-    <div class="section-sub">Gestão de todas as campanhas de tráfego e produção recorrente dos criativos do perpétuo.</div>
-  </div>
-
-  <div class="totals">
-    <div class="total-card">
-      <div class="number">15</div>
-      <div class="desc">Criativos por mês</div>
-    </div>
-    <div class="total-card">
-      <div class="number">10</div>
-      <div class="desc">Estáticos</div>
-    </div>
-    <div class="total-card">
-      <div class="number">5</div>
-      <div class="desc">Vídeos</div>
-    </div>
-    <div class="total-card">
-      <div class="number">90</div>
-      <div class="desc">Criativos em 6 meses</div>
-    </div>
-  </div>
-
-  <div class="divider"></div>
-
-  <!-- O QUE ESTÁ INCLUSO -->
-  <div style="animation: fadeUp .8s ease-out .25s both;">
-    <div class="section-label">Incluso todo mês</div>
-    <div class="section-title">O que está incluso</div>
-    <div class="section-sub">Detalhamento do que compõe a entrega mensal.</div>
+    <div class="section-label">Base comum</div>
+    <div class="section-title">O que está incluso nos três modelos</div>
+    <div class="section-sub">Isso não muda, independente do modelo escolhido.</div>
 
     <div class="inc-grid">
       <div class="inc-item">
@@ -203,15 +224,7 @@
       </div>
       <div class="inc-item">
         <span class="check">✦</span>
-        10 criativos estáticos por mês para o perpétuo, com copy e design
-      </div>
-      <div class="inc-item">
-        <span class="check">✦</span>
-        5 criativos em vídeo por mês para o perpétuo, com copy e edição
-      </div>
-      <div class="inc-item">
-        <span class="check">✦</span>
-        Criativos renovados todo mês, para os anúncios não cansarem o público
+        Criativos estáticos e em vídeo, com copy, design e edição
       </div>
       <div class="inc-item">
         <span class="check">✦</span>
@@ -226,17 +239,126 @@
 
   <div class="divider"></div>
 
-  <!-- INVESTIMENTO -->
-  <div class="investment" style="animation: fadeUp .8s ease-out .5s both;">
+  <div style="animation: fadeUp .8s ease-out .25s both;">
     <div class="section-label">Investimento</div>
-    <div class="price"><span>R$</span>4.000</div>
-    <div class="price-note">por mês</div>
-    <div class="contract">Valor exclusivo para clientes com projeto ativo</div>
-    <div class="term">Contrato de 6 meses</div>
+    <div class="section-title">Os três modelos</div>
+    <div class="section-sub">A diferença entre eles está em duas coisas: quantos criativos são produzidos por mês e como a Lumen é remunerada.</div>
+
+    <div class="models">
+
+      <div class="model">
+        <div class="tag">Modelo 1</div>
+        <div class="name">Fixo</div>
+        <div class="fixo"><span>R$</span>4.000</div>
+        <div class="fixo-note">por mês</div>
+        <div class="sem-com">Sem comissão sobre as vendas</div>
+        <div class="sep"></div>
+        <div class="criativos-n">15</div>
+        <div class="criativos-d">criativos por mês<br>10 estáticos e 5 vídeos</div>
+      </div>
+
+      <div class="model">
+        <div class="tag">Modelo 2</div>
+        <div class="name">Coprodução A</div>
+        <div class="fixo"><span>R$</span>1.000</div>
+        <div class="fixo-note">fixo por mês</div>
+        <div class="plus">+</div>
+        <div class="pct">15%</div>
+        <div class="pct-note">sobre o faturamento dos produtos na Hotmart</div>
+        <div class="sep"></div>
+        <div class="criativos-n">∞</div>
+        <div class="criativos-d">criativos ilimitados<br>no ritmo do teste</div>
+        <div class="bonus-tag">✦ Com bônus da coprodução</div>
+      </div>
+
+      <div class="model">
+        <div class="tag">Modelo 3</div>
+        <div class="name">Coprodução B</div>
+        <div class="fixo"><span>R$</span>3.000</div>
+        <div class="fixo-note">fixo por mês</div>
+        <div class="plus">+</div>
+        <div class="pct">5%</div>
+        <div class="pct-note">sobre o faturamento dos produtos na Hotmart</div>
+        <div class="sep"></div>
+        <div class="criativos-n">∞</div>
+        <div class="criativos-d">criativos ilimitados<br>no ritmo do teste</div>
+        <div class="bonus-tag">✦ Com bônus da coprodução</div>
+      </div>
+
+    </div>
+
+    <p class="term">Prazo de 6 meses nos três modelos</p>
     <p class="fine">A verba dos anúncios não está inclusa no valor.</p>
   </div>
 
-  <!-- FOOTER -->
+  <div class="divider"></div>
+
+  <div style="animation: fadeUp .8s ease-out .35s both;">
+    <div class="section-label">Lado a lado</div>
+    <div class="section-title">Comparativo</div>
+    <div class="section-sub">Os três modelos na mesma tabela.</div>
+
+    <div class="table-wrap">
+      <table class="compare">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Fixo</th>
+            <th>Coprodução A</th>
+            <th>Coprodução B</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Valor fixo</th>
+            <td>R$ 4.000/mês</td>
+            <td>R$ 1.000/mês</td>
+            <td>R$ 3.000/mês</td>
+          </tr>
+          <tr>
+            <th>Comissão</th>
+            <td>Não há</td>
+            <td>15% sobre o faturamento dos produtos na Hotmart</td>
+            <td>5% sobre o faturamento dos produtos na Hotmart</td>
+          </tr>
+          <tr>
+            <th>Criativos por mês</th>
+            <td>15 (10 estáticos e 5 vídeos)</td>
+            <td>Ilimitados</td>
+            <td>Ilimitados</td>
+          </tr>
+          <tr>
+            <th>Gestão de tráfego</th>
+            <td>Todas as campanhas</td>
+            <td>Todas as campanhas</td>
+            <td>Todas as campanhas</td>
+          </tr>
+          <tr>
+            <th>Bônus</th>
+            <td>Não incluso</td>
+            <td>Copy da página de vendas da Vivência</td>
+            <td>Copy da página de vendas da Vivência</td>
+          </tr>
+          <tr>
+            <th>Prazo</th>
+            <td>6 meses</td>
+            <td>6 meses</td>
+            <td>6 meses</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="bonus" style="animation: fadeUp .8s ease-out .45s both;">
+    <div class="bonus-label">Bônus da coprodução</div>
+    <div class="bonus-title">Copy da página de vendas da Vivência</div>
+    <div class="bonus-note">Nos modelos de coprodução, a copy completa da página de vendas da Vivência entra inclusa, sem custo adicional.</div>
+    <div class="badge">✦ Exclusivo dos modelos de coprodução</div>
+  </div>
+
   <div class="footer">
     <div class="logo-text">Lumen</div>
     <p>Strategic Hub</p>
