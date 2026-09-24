@@ -60,6 +60,36 @@
     font-size: 15px; color: var(--text-soft); max-width: 520px; margin: 0 auto; line-height: 1.7;
   }
 
+  .valor { margin-bottom: 56px; animation: fadeUp .8s ease-out .08s both; }
+  .valor .abertura {
+    font-size: 16px; color: var(--text); line-height: 1.8; max-width: 640px;
+    margin: 0 auto 32px; text-align: center;
+  }
+  .valor .abertura strong { color: var(--white); font-weight: 500; }
+  .valor-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .valor-card {
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px;
+    padding: 26px 24px; transition: border-color .3s, transform .3s;
+  }
+  .valor-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .valor-card h3 {
+    font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 600;
+    color: var(--white); line-height: 1.25; margin-bottom: 10px;
+  }
+  .valor-card p { font-size: 13px; color: var(--text-soft); line-height: 1.7; }
+  .escolha {
+    text-align: center; margin-bottom: 30px; animation: fadeUp .8s ease-out .1s both;
+  }
+  .escolha .section-label {
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 10px;
+  }
+  .escolha h2 {
+    font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 600;
+    color: var(--white); margin-bottom: 8px;
+  }
+  .escolha p { font-size: 14px; color: var(--text-soft); max-width: 560px; margin: 0 auto; }
+
   .models { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: stretch; }
   .model {
     background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px;
@@ -139,6 +169,7 @@
 
   @media (max-width: 880px) {
     .models { grid-template-columns: 1fr; }
+    .valor-grid { grid-template-columns: 1fr; }
     .model .preco-bloco { text-align: left; }
   }
   @media (max-width: 520px) {
@@ -158,6 +189,35 @@
     <div class="brand">Lumen Strategic Hub</div>
     <h1>Proposta de <em>Tráfego</em> e Criativos</h1>
     <p class="subtitle">Três modelos possíveis para a Giovana. Você escolhe o que faz mais sentido pro seu momento.</p>
+  </div>
+
+  <div class="valor">
+    <p class="abertura">A sua mensagem já encontra quem te acompanha. O tráfego é o que leva ela pra quem ainda não te conhece, todo dia, sem depender do alcance orgânico. <strong>É a peça que falta pra escalar o alcance do seu trabalho.</strong></p>
+
+    <div class="valor-grid">
+      <div class="valor-card">
+        <h3>A operação de tráfego inteira com a Lumen</h3>
+        <p>Estratégia de campanha, criação dos anúncios, subida, acompanhamento e leitura dos números. Você aprova a direção e acompanha o resultado, sem precisar reunir e cobrar gente de fora.</p>
+      </div>
+      <div class="valor-card">
+        <h3>Anúncio feito por quem já conhece a sua voz</h3>
+        <p>Quem cria os anúncios é o mesmo time que já escreve com você. O criativo nasce da sua mensagem e da estratégia que já está rodando, não de um pedido solto pra um fornecedor que nunca te ouviu.</p>
+      </div>
+      <div class="valor-card">
+        <h3>Criativo novo no ritmo que o número pedir</h3>
+        <p>Anúncio cansa e o custo sobe. Em vez de esperar o resultado cair pra reagir, a produção acompanha o teste: o que dá sinal ganha mais verba, o que satura sai e entra outro no lugar.</p>
+      </div>
+      <div class="valor-card">
+        <h3>A continuação natural da nossa parceria</h3>
+        <p>A estratégia define o que você diz e pra quem. O tráfego coloca isso na frente de muito mais gente. Juntas, as duas partes deixam de ser conteúdo publicado e viram escala de verdade pros seus produtos.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="escolha">
+    <div class="section-label">Investimento</div>
+    <h2>Três formas de fazer isso acontecer</h2>
+    <p>O trabalho é o mesmo nos três. Muda a quantidade de criativos e como a Lumen é remunerada.</p>
   </div>
 
   <div class="models">
