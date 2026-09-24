@@ -150,6 +150,18 @@
   .model .pct-note { font-size: 12px; color: var(--text-soft); line-height: 1.55; }
   .model .sem-com { font-size: 12px; color: var(--text-muted); margin-top: 12px; }
 
+  .time {
+    margin-top: 28px; padding: 26px 28px; text-align: center;
+    background: var(--bg-card); border: 1px solid var(--border); border-radius: 18px;
+    animation: fadeUp .8s ease-out .35s both;
+  }
+  .time .numero {
+    font-family: 'Cormorant Garamond', serif; font-size: clamp(24px, 4vw, 30px);
+    font-weight: 600; color: var(--white); line-height: 1.25; margin-bottom: 8px;
+  }
+  .time .numero span { color: var(--accent); }
+  .time p { font-size: 13px; color: var(--text-soft); line-height: 1.7; max-width: 520px; margin: 0 auto; }
+
   .fine { font-size: 12px; color: var(--text-muted); margin-top: 28px; text-align: center; line-height: 1.8; }
 
   .footer {
@@ -286,6 +298,11 @@
       </div>
     </div>
 
+  </div>
+
+  <div class="time">
+    <div class="numero"><span>8 pessoas</span> trabalhando no seu projeto</div>
+    <p>Estratégia, copy, design, vídeo, tráfego e gestão de projetos. O time é o mesmo nos três modelos.</p>
   </div>
 
   <p class="fine">A verba dos anúncios não está inclusa no valor.</p>
